@@ -1,4 +1,5 @@
-#include "vect.h"
+// vect.срр -- методы класса Vector 
+#include "vect.h" // включает <iostream> 
 
 using std::sqrt;
 using std::sin;
