@@ -1,4 +1,4 @@
-// vect.h — класс Vector с операцией « и поддержкой режима координат 
+// vect.h вЂ” РєР»Р°СЃСЃ Vector СЃ РѕРїРµСЂР°С†РёРµР№ В« Рё РїРѕРґРґРµСЂР¶РєРѕР№ СЂРµР¶РёРјР° РєРѕРѕСЂРґРёРЅР°С‚ 
 #ifndef VECT_H_ 
 #define VECT_H_
 #include <cmath>
@@ -12,14 +12,14 @@ namespace VECTOR
 	{
 	public:
 		enum Mode { RECT, POL };
-		// RECT — для режима прямоугольных координат, POL — для режима полярных координат 
+		// RECT вЂ” РґР»СЏ СЂРµР¶РёРјР° РїСЂСЏРјРѕСѓРіРѕР»СЊРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚, POL вЂ” РґР»СЏ СЂРµР¶РёРјР° РїРѕР»СЏСЂРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚ 
 	private:
-		double x; // горизонтальное значение 
-		double y; // вертикальное значение 
-		double mag; // длина вектора 
-		double ang; // направление вектора в градусах 
-		Mode mode;  // RECT или POL 
-					// Закрытые методы для установки значений 
+		double x; // РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ 
+		double y; // РІРµСЂС‚РёРєР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ 
+		double mag; // РґР»РёРЅР° РІРµРєС‚РѕСЂР° 
+		double ang; // РЅР°РїСЂР°РІР»РµРЅРёРµ РІРµРєС‚РѕСЂР° РІ РіСЂР°РґСѓСЃР°С… 
+		Mode mode;  // RECT РёР»Рё POL 
+					// Р—Р°РєСЂС‹С‚С‹Рµ РјРµС‚РѕРґС‹ РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё Р·РЅР°С‡РµРЅРёР№ 
 		void set_mag();
 		void set_ang();
 		void set_x();
@@ -29,18 +29,18 @@ namespace VECTOR
 		Vector(double nl, double n2, Mode form = RECT);
 		void reset(double nl, double n2, Mode form = RECT);
 		~Vector();
-		double xval() const { return x; } // сообщает значение х 
-		double yval() const { return y; } // сообщает значение у 
-		double magval() const { return mag; } // сообщает модуль 
-		double angval() const { return ang; } // сообщает угол 
-		void polar_mode(); // устанавливает режим в POL 
-		void rect_mode();  // устанавливает режим в RECT 
-						   // Перегрузка операций 
+		double xval() const { return x; } // СЃРѕРѕР±С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ С… 
+		double yval() const { return y; } // СЃРѕРѕР±С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ Сѓ 
+		double magval() const { return mag; } // СЃРѕРѕР±С‰Р°РµС‚ РјРѕРґСѓР»СЊ 
+		double angval() const { return ang; } // СЃРѕРѕР±С‰Р°РµС‚ СѓРіРѕР» 
+		void polar_mode(); // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЂРµР¶РёРј РІ POL 
+		void rect_mode();  // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЂРµР¶РёРј РІ RECT 
+						   // РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С†РёР№ 
 		Vector operator+(const Vector & b) const;
 		Vector operator-(const Vector & b) const;
 		Vector operator-() const;
 		Vector operator*(double n) const;
-		// Друзья 
+		// Р”СЂСѓР·СЊСЏ 
 		friend Vector operator*(double n, const Vector & a);
 		friend std::ostream & operator<<(std::ostream & os, const Vector & v);
 		friend std::ofstream & operator<<(std::ofstream & os, const Vector & v);
