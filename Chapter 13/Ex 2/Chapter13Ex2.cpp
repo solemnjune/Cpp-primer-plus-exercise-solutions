@@ -1,3 +1,4 @@
+// компилировать вместе с файлом Source.cpp
 #include "pch.h"
 #include <iostream> 
 #include "Classes.h" // будет содержать #include cd.h 
