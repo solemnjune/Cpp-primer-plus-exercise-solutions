@@ -1,3 +1,4 @@
+// vect.h — класс Vector с операцией << и поддержкой режима координат 
 #ifndef VECT_H_ 
 #define VECT_H_
 #include <cmath>
