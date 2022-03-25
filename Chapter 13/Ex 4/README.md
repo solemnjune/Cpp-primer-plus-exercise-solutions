@@ -21,7 +21,7 @@ public:
 	Port & operator-= (int b) ; // вычитает b из bottles, если это возможно 
 	int BottleCount() const { return bottles; } 
 	virtual void Show() const; 
-	friend ostream & operator« (ostream & os, const Port & p) ; 
+	friend ostream & operator<< (ostream & os, const Port & p) ; 
 };
 ```
 
@@ -56,7 +56,7 @@ public:
 	~VintagePort() { delete [] nickname; } 
 	VintagePort & operator=(const VintagePort & vp); 
 	void Show() const; 
-	friend ostream & operator«(ostream & os, const VintagePort & vp); 
+	friend ostream & operator<<(ostream & os, const VintagePort & vp); 
 }; 
 ```
 
