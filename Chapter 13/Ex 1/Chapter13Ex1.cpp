@@ -1,52 +1,42 @@
+// компилировать вместе с Source.cpp
 #include "pch.h"
 #include <iostream> 
-#include "Classes.h" 
+#include "Classes.h" // будет содержать #include cd.h 
 
+using namespace std;
 
-Cd::Cd(const char* s1, const char* s2, int n, double x) {
-	strncpy_s(performers, s1,49);
-	performers[49] = '\0';
-	strncpy_s(label, s2,19);
-	label[19] = '\0';
-	selections = n;
-	playtime = x;
-}
+void Bravo(const Cd & disk);
 
-Cd::~Cd() {
-
-}
-Cd::Cd() {
-	strncpy_s(performers, "null",5);
-	strncpy_s(label, "null", 5);
-	selections = 0;
-	playtime = 0;
-}
-
-void Cd::Report() const{
-	std::cout << "Performers: " << performers << std::endl;
-	std::cout << "Label: " << label << std::endl;
-	std::cout << "Selections: " << selections << std::endl;
-	std::cout << "Playtime: " << playtime << std::endl<<std::endl;
-}
-
-Classic::Classic(const char* s1, const  char* s2, const  char* s3, int n, double x)
-				:Cd(s2, s3, n, x)
+int main()
 {
-	strncpy_s(mainName, s1, 49);
-	mainName[49] = '\0';
+	Cd cl("Beatles", "Capitol", 14, 35.5);
+	Classic c2 = Classic("Piano Sonata in B flat, Fantasia in C",
+		"Alfred Brendel", "Philips", 2, 57.17);
+	Cd *pcd = &cl;
+	// Непосредственное использование объектов 
+	cout << "Using object directly:\n";
+	cl.Report(); // использование метода Cd 
+	c2.Report(); // использование метода Classic 
+	// Использование указателя на объекты типа cd * 
+	cout << "Using type cd * pointer to objects: \n";
+	pcd->Report(); // использование метода Cd для объекта cd 
+	pcd = &c2;
+	pcd->Report(); // использование метода Classic для объекта classic 
+	// Вызов функции с аргументом-ссылкой на Cd 
+	cout << "Calling a function with a Cd reference argument:\n";
+	Bravo(cl);
+	Bravo(c2);
+	// Тестирование присваивания 
+	cout << "Testing assignment: ";
+	Classic copy;
+	copy = c2;
+	copy.Report();  
+	
+
+		return 0;
 }
 
-Classic::Classic(const Cd&d, const char*s1)
-				: Cd(d) {
-	strncpy_s(mainName, s1, 49);
-	mainName[49] = '\0';
-}
-
-Classic::Classic()  {
-	strncpy_s(mainName, "null", 5);
-}
-
-void Classic::Report() const {
-	std::cout << "Main track: " << mainName << std::endl;
-	Cd::Report();
+void Bravo(const Cd & disk)
+{
+	disk.Report();
 }
