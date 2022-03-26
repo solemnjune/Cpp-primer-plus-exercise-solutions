@@ -10,7 +10,7 @@ int main ()
 	auto q = average_list ({15.4, 10.7, 9.0}); 
 	cout << q << endl; 
 	// Список int выведен из содержимого списка 
-	cout << averagelist ({20, 30, 19, 17, 45, 38} ) << endl; 
+	cout << average_list ({20, 30, 19, 17, 45, 38} ) << endl; 
 	// Принудительное использование списка double 
 	auto ad = average_list<double> ( {'A', 70, 65.33}); 
 	cout << ad << endl; 
