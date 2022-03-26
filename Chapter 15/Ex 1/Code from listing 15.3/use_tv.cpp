@@ -1,4 +1,5 @@
 // use_tv.cpp — использование классов Тѵ и Remote 
+//компилировать вместе с файлом tv.cpp
 #include <iostream>
 #include "tvfm.h"
 
