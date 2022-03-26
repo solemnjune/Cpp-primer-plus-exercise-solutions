@@ -1,4 +1,4 @@
-// компилировать с файлом wine.cpp
+// компилировать с файлом Wine.cpp
 #include "pch.h"
 #include "Wine.h"
 
