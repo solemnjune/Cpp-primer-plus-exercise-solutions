@@ -53,7 +53,5 @@ int main()
 		delete lolas[i];
 	cout << "Bye.\n";
 
-	std::cin.get();
-	std::cin.get();
 	return 0;
 }
