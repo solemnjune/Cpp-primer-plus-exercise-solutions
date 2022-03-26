@@ -1,0 +1,67 @@
+#include <iostream>
+#include <set>
+#include <string>
+#include <algorithm>
+#include <fstream>
+
+
+
+int main()
+{
+	std::set <std::string> MatList;
+	std::set <std::string> PatList;
+	std::set <std::string> CombinedList;
+	std::string temp;
+	std::ifstream matIn;
+	std::ifstream patIn;
+	std::ofstream combIn;
+
+	matIn.open("mat.dat");
+	if (!matIn.is_open()) {
+		std::cout << "Error in opening Mat's file!";
+		std::exit(EXIT_FAILURE);
+	}
+	patIn.open("pat.dat");
+	if (!patIn.is_open()) {
+		std::cout << "Error in opening Pat's file!";
+		std::exit(EXIT_FAILURE);
+	}
+
+	combIn.open("matnpat.dat");
+	if (!combIn.is_open()) {
+		std::cout << "Error in opening comvined file!";
+		std::exit(EXIT_FAILURE);
+	}
+
+
+	std::cout << "If there are some friends with identical names, please, add something to their name in your text file to differentiate them (e.x. \"Peter1\", \"Peter jr\" or \"Peter Smith\" \n";
+	
+	while (std::getline(matIn, temp)) {
+		MatList.insert(temp);
+	}
+	std::cout << "\nShowing Max's friends: \n";
+	for (auto i = MatList.begin(); i != MatList.end(); i++) {
+		std::cout << *i << '\n';
+	}
+
+	while (std::getline(patIn, temp) ) {
+		PatList.insert(temp);
+	}
+	std::cout << "\nShowing Pat's friends: \n";
+	for (auto i = PatList.begin(); i != PatList.end(); i++) {
+		std::cout << *i << '\n';
+	}
+
+	CombinedList.insert(MatList.begin(), MatList.end());
+	CombinedList.insert(PatList.begin(), PatList.end());
+	
+	std::cout << "\nShowing combined list of friends: \n";
+	for (auto i = CombinedList.begin(); i != CombinedList.end(); i++) {
+		std::cout << *i << '\n';
+	}
+	for (auto i = CombinedList.begin(); i != CombinedList.end(); i++) {
+		combIn << *i << '\n';
+	}
+	std::cout << "\nCombined guest list  is saved in file: matnpat.dat";
+}
+
